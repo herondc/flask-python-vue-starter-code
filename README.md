@@ -1,2 +1,4 @@
-# INFO3180 Lab 7
-Starter code for Lab 7
+# Flask-VueJS Template
+This template is to allow for easy development by implementing features
+common to multiple apps
+

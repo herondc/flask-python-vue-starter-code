@@ -6,17 +6,42 @@ This file creates your application.
 """
 
 from app import app
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for, flash
 
-###
-# Routing for your application.
-###
-
+############----Routing begins------##########
 
 @app.route('/')
 def index():
     """Render website's initial page and let VueJS take over."""
+    return app.send_static_file('index.html')
+    
+@app.route('/register')
+def register():
+    """Render website's initial page and let VueJS take over."""
+    return app.send_static_file('index.html')
+    
+@app.route('/login')
+def login():
+    """Render website's initial page and let VueJS take over."""
+    return app.send_static_file('index.html')
+
+##--Register route--##    
+@app.route('/api/users/register')
+def registerr():
+    """Render website's initial page and let VueJS take over."""
     return render_template('index.html')
+####################################################################
+    
+##--Login route--##
+####################################################################
+
+##--Logout route--##
+###################################################################
+
+##--Profile route--##
+##################################################################
+    
+#######--------Routing ends-------############
 
 
 # Here we define a function to collect form errors from Flask-WTF
@@ -63,7 +88,7 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
-
+#####################################################################
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port="8080")
